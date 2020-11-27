@@ -1,0 +1,70 @@
+@import "bootstrap";
+
+//all.view
+
+
+
+/* typography (全てのviewファイルで使われるフォントの設定)*/
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+li {
+    list-style: none;
+}
+
+//header
+
+.container {
+    text-decoration: none
+}
+
+//toppage
+
+.jumbotron{
+    margin: 0 auto;
+    max-width: 1200px;
+    height: 200px;
+    background-color: white;
+    text-align: left;
+    background-color: #D9E5FF;
+}
+
+.display-4 {
+    padding-top: 30px;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.btn {
+    margin: 20px;
+}
+
+
+
+.card-header {
+    background-color: #e3f2fd;
+}
+
+.card {
+    margin: 40px;
+}
