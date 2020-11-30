@@ -5,15 +5,19 @@
  <div class="container">
     <div class="row">
       <div class="col-sm-6">
-        <div class="card">
+        <div class="card undertale">
           <h5 class="card-header">user-index</h5>
           <div class="card-body">
-            <p class="card-text">本日出勤しているスタッフ</p>
+            <div class="card-text">
+              <%= @users.each do |user| %>
+                <p><%= link_to user.name, "#" %></p>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-sm-6">
-        <div class="card">
+        <div class="card undertale">
           <h5 class="card-header">project-index</h5>
           <div class="card-body">
             <p class="card-text">進行中のプロジェクト</p>

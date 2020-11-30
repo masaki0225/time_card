@@ -1,8 +1,34 @@
 @import "bootstrap";
 
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
 //all.view
 
+body {
+    color: white;
+    background-color: black
+}
 
+.undertale {
+    background-color: black;
+    color: white;
+    margin: 15px 200px;
+    border: 0.6rem solid white;
+}
 
 /* typography (全てのviewファイルで使われるフォントの設定)*/
 
@@ -32,11 +58,17 @@ li {
     list-style: none;
 }
 
+.adress-font {
+    opacity: 0.5;
+}
+
+
 //header
 
 .container {
     text-decoration: none
 }
+
 
 //toppage
 
@@ -67,4 +99,47 @@ li {
 
 .card {
     margin: 40px;
+}
+
+.card-text p {
+    background-color: #e3f2fd;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border-bottom: solid;
+}
+
+//form
+
+.form-group {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+#error_explanation {
+  width: 500px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 15px;
+  ul {
+    text-align: left;
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  input {
+    @extend .is-invalid;
+  }
+}
+
+//show
+
+.user-name {
+    padding-top: 15px;
+    padding-left: 40px;
 }

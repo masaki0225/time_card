@@ -9,6 +9,8 @@ gem 'rails', '~> 6.0.3'
 gem 'bootstrap', '~> 5.0.0.alpha3'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+#has_secure_password
+gem 'bcrypt',         '3.1.13'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
@@ -47,11 +49,10 @@ group :development do
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
+  gem 'rails-controller-testing'
+  gem 'minitest-reporters'
+  gem 'guard'
+  gem 'guard-minitest'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
