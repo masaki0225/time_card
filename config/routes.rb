@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   
+  get '/timecard', to: 'time_cards#show'
+  post '/timecard', to: 'time_cards#create'
+  get 'monthly', to: 'time_cards#index'
+  
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
