@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_many :projects, dependent: :destroy
     before_save :downcase_email
     
     validates :name, presence: true, length: { maximum: 50 }
@@ -15,6 +16,10 @@ class User < ApplicationRecord
                                                   BCrypt::Engine.cost
       BCrypt::Password.create(string, cost: cost)
     end
+    
+    def feed
+        Project.where("user_id = ?", id )
+    end 
     
     private
     

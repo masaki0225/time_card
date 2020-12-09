@@ -1,0 +1,5 @@
+Spear of Justice:
+  title: Spear of Justice
+  content: undine
+  user: undine
+  created_at: <%= Time.zone.now %>

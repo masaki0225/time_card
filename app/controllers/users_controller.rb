@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   def destroy
@@ -34,10 +34,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @projects = @user.projects.all
   end
 
   def update
-    @user = User.find_by(params[:id])
+    @user = User.find_by(id: params[:id])
     if @user.update(user_params)
       flash[:success] = "Edit Determination!"
       redirect_to user_path
@@ -51,17 +52,11 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end  
     
-    #ログインしていないユーザーはlogin_pathに飛ばす
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = "ケツイが足りない！"
-        redirect_to login_path
-      end
-    end
+    
     
     #他のユーザーが編集できないようにする
     def correct_user
-      @user = User.find(params[:id])
+      @user = User.find_by(id: params[:id])
       redirect_to(root_url) unless @user == current_user
     end 
 end

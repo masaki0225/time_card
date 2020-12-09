@@ -2,3 +2,4 @@ undine:
   name: undine
   email: undine@example.com
   password_digest: <%= User.digest('password') %>
+  adimin: true

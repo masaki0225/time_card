@@ -42,4 +42,13 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
   end 
   
+  test "associated projects should be destroyed" do
+    @user.save
+    @user.projects.create!( title: "Spear of Justice",
+                            content: "undine")
+    assert_difference "Project.count", -1 do
+      @user.destroy
+    end
+  end 
+  
 end

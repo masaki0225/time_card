@@ -1,0 +1,26 @@
+<%= form_with(model: @project, local: true) do |f| %>
+
+  <%= render 'shared/error_message', object: f.object %>
+  
+  <div class="undertale">
+      
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control', placeholder: "Compose new title..." %>  
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :content %>
+      <%= f.text_area :content, class: 'form-control', placeholder: "Compose new micropost..." %>
+    </div>
+    
+    <%= f.submit "Post", class: "btn btn-primary" %>
+    
+    <span class="image">
+    <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+    </span>
+    
+  </div>
+  
+  
+<% end %>

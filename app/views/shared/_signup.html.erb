@@ -1,6 +1,6 @@
   <%= form_with(model: @user, local: true) do |f| %>
 
-    <%= render "shared/error_message" %>
+    <%= render "shared/error_message", object: f.object %>
     
     <div class="undertale">
         

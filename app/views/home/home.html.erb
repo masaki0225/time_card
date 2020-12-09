@@ -1,3 +1,7 @@
+<div class="title">
+  <h1>Welcome!</h1>
+  <p>参加メンバーはログインしてください。</p>
+  <p>初めての方は<%= link_to "『Sign Up』", signup_path %>をよかったらどうぞ</p>
 </div>
  <div class="container">
     <div class="row">
@@ -8,10 +12,10 @@
             <div class="card-text">
               <%= @users.each do |user| %>
                 <p>
-                  <%= link_to user.name, user %>
-                  <% if current_user.admin? && !current_user?(user) %>
-                    <% link_to "delete", user_path, method: :delete, data: { confirm: "You sure?" } %>
-                  <% end %>  
+                  <%= link_to user do %>
+                    <%= image_tag 'heart.png' %>
+                    <%= user.name %>
+                  <% end %>
                 </p>
               <% end %>
             </div>
@@ -22,7 +26,14 @@
         <div class="card undertale">
           <h5 class="card-header">project-index</h5>
           <div class="card-body">
-            <p class="card-text">進行中のプロジェクト</p>
+            <p class="card-text">
+              <%= @projects.each do |project| %>
+                <p>
+                  <%= link_to project.title, project %>
+                </p>
+              <% end %>
+            </p>
+            
           </div>
         </div>
       </div>

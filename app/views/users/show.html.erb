@@ -1,6 +1,17 @@
+<div class="selif-left">
+  <p><%= @user.name %>のページだよ</p>
+  <p><%= @user.email %></p>
+</div>
+
 <div class="undertale">
-    <h1 class="user-name">
-      <%= @user.name %>
-      <font size="6" class="adress-font"><%= @user.email%></font>
-    </h1>
+  <% if @projects.any? %>
+    <%= @projects.each do |project| %>
+      <div class="project-control">
+        <p><%= project.title %></p>
+        <%= image_tag project.image if project.image.attached? %>
+        <p><%= project.content %></p>
+        <%= link_to "delete", project_path, method: :delete, data: { confilm: "you sure?" } %>
+      </div>
+    <% end %>  
+  <% end %>
 </div>
