@@ -1,12 +1,12 @@
 <% if object.errors.any? %>
   <div id="error_explanation">
-    <div class="alert alert-secondary" role="alert">
-    	 The form contains <%= pluralize( object.errors.count, "error" ) %>
-    </div>
-    <ul>
-    	<%= object.errors.full_messages.each do |msg| %>
-    	  <li><%= msg %></li>
-    	<% end %>
-    </ul>
+    <p>
+     <%= pluralize( object.errors.count, "error" ) %>をアドバイス
+      <ul>
+      	<%= object.errors.full_messages.each do |msg| %>
+      	  <li><%= msg %></li>
+      	<% end %>
+      </ul>
+    </p>
   </div>
 <% end %>

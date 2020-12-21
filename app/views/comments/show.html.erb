@@ -1,0 +1,7 @@
+<div class="undertale">
+  <%= @comment.title %>
+  <%= @comment.content %>
+  <%= image_tag @comment.image if @comment.image.attached? %>
+  
+  <%= link_to "destroy", comment_path, method: :delete %>
+</div>

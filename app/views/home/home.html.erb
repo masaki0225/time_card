@@ -1,8 +1,18 @@
 <div class="title">
-  <h1>Welcome!</h1>
-  <p>参加メンバーはログインしてください。</p>
-  <p>初めての方は<%= link_to "『Sign Up』", signup_path %>をよかったらどうぞ</p>
+  <%= image_tag 'flowy.jpg', class: 'flowy' %>
+  <div class="selif-left">
+    <% if logged_in? %>
+      <p><%= current_user.name %>,新しいプロジェクトを作成するの？</p>
+      <p>なんて素敵なアイデア！</p>
+      <p><%= link_to "New Project", projects_new_path %></p>
+    <% else %>
+      <p>やぁ！</p>
+      <p>初めての方は<%= link_to "Sign Up", signup_path %>をしてね</p>
+      <p>参加メンバーは<%= link_to "Login", login_path %>をしてね</p>
+    <% end %>
+  </div>
 </div>
+
  <div class="container">
     <div class="row">
       <div class="col-sm-6">
@@ -33,10 +43,9 @@
                 </p>
               <% end %>
             </p>
-            
+
           </div>
         </div>
       </div>
     </div>
 </div>
-    

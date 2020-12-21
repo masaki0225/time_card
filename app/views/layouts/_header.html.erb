@@ -1,24 +1,21 @@
 <nav class="navbar navbar-light" style="background-color: #555555;">
     <div class="container">
-        <li><%= link_to "Home", root_path, style: "color: #777777;", class: "header-menu" %></li>
-        <div class="dropdown">
-          <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <li>Menu</li>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Edit</a>
-            <a class="dropdown-item" href="#">new project</a>
-            <a class="dropdown-item" href="#">Logout</a>
-          </div>
-        </div>
+        <%= link_to "Home", root_path %>
         <% if logged_in? %>
-          <li><%= link_to "Edit", edit_user_path(current_user), style: "color: #777777;", class: "header-menu" %></li>
-          <li><%= link_to "Log out", logout_path, method: :delete, style: "color: #777777;", class: "header-menu" %></li>
-          <li><%= link_to current_user.name, user_path(current_user), style: "color: #777777;", class: "header-menu" %></li>
-          <li><%= link_to "new project", projects_new_path, style: "color: #777777;", class: "header-menu" %></li>
+          <%= link_to current_user.name, user_path(current_user) %>
+          <div class="dropdown">
+            <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <li>Menu</li>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><%= link_to "user edit", edit_user_path(current_user) %></li>
+              <li><%= link_to "new project", projects_new_path %></li>
+              <li><%= link_to "Log out", logout_path, method: :delete %></li>
+            </div>
+          </div>
         <% else %>
-          <li><%= link_to "Sign up", signup_path, style: "color: #777777;", class: "header-menu" %></li>
-          <li><%= link_to "Login", login_path, style: "color: #777777;", class: "header-menu" %></li>
-        <% end %>  
+          <%= link_to "Sign up", signup_path %>
+          <%= link_to "Login", login_path %>
+        <% end %>
     </div>
 </nav>

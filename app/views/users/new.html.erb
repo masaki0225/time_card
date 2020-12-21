@@ -1,4 +1,46 @@
-<div class="selif-left">
-  <p>これはSign up画面だよ</p>
-</div>
-<%= render 'shared/signup' %>
+  <%= form_with(model: @user, local: true) do |f| %>
+
+  <div class="title">
+    <% if !@user.errors.any? %>
+      <%= image_tag 'bugerpant1', class: 'bugerpant' %>
+    <% else %>
+      <%= image_tag 'bugerpant2', class: 'bugerpant' %>
+    <% end %>
+    <div class="selif-left">
+      <%= render "shared/error_message", object: f.object %>
+      <% if !@user.errors.any? %>
+       <p>せんぱいとしてアドバイスしとくぜ</p>
+       <p>あんたはまだアカウントをもってない</p>
+       <p>はやくつくりな</p>
+      <% end %>
+    </div>
+  </div>
+
+    <div class="undertale">
+
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+
+        <%= button_tag type: 'submit', class: 'btn btn-border' do %>
+          <%= image_tag '紙飛行機アイコン.png', class: 'icon' %>そうしん
+        <% end %>
+
+    </div>
+  <% end %>

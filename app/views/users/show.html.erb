@@ -1,17 +1,31 @@
-<div class="selif-left">
-  <p><%= @user.name %>のページだよ</p>
-  <p><%= @user.email %></p>
+<div class="title">
+  <%= image_tag "heart.png", class: 'heart' %>
+  <div class="selif-left">
+    <% if logged_in? %>
+      <% if @user.id == current_user.id %>
+        <p>自分のページだ。</p>
+        <p><%= @user.email %></p>
+      <% else %>
+        <p><%= @user.name %>のページだ</p>
+        <p><%= @user.email %></p>
+      <% end %>
+    <% else %>
+      <p><%= @user.name %>のページだ</p>
+      <p><%= @user.email %></p>
+    <% end %>
+  </div>
 </div>
 
-<div class="undertale">
   <% if @projects.any? %>
     <%= @projects.each do |project| %>
-      <div class="project-control">
-        <p><%= project.title %></p>
-        <%= image_tag project.image if project.image.attached? %>
-        <p><%= project.content %></p>
-        <%= link_to "delete", project_path, method: :delete, data: { confilm: "you sure?" } %>
+      <div class="undertale">
+        <p class="project-title"><%= link_to project.title, project %></p>
+        <% if project.image.attached? %>
+          <div class="project-image">
+            <%= image_tag project.image %>
+          </div>
+        <% end %>
+        <%= simple_format(project.content, class: "project-content") %>
       </div>
-    <% end %>  
+    <% end %>
   <% end %>
-</div>
