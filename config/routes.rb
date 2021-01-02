@@ -4,16 +4,20 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 
-  resources :projects, only: [:create, :destroy ] do
+  resources :projects, only: [:create, :destroy, :update] do
+    resources :participations, only: [:create] do
+    end
     resources :comments, only: [:create]
     get 'comments/:id', to: 'comments#show'
   end
 
   get '/projects/new', to: 'projects#new'
   get '/projects/:id', to: 'projects#show'
+  get '/projects/edit/:id', to: 'projects#edit', as: "edit_project"
+
 
   delete '/commentout/:id', to: 'comments#destroy', as: "commentout"
-
+  delete '/nonparticipation/:project_id/:id', to: 'participations#destroy', as: 'nonparticipation'
 
   get '/timekeep', to: 'time_keeps#show'
   post '/timekeep', to: 'time_keeps#create'

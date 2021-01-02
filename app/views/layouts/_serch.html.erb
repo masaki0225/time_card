@@ -1,0 +1,8 @@
+<%= search_form_for @q, url: user_path(@user) do |f| %>
+  <div style="display: inline-flex">
+  <div class="form-group">
+    <%= f.search_field :title_cont, class: "form-control", placeholder: '検索ワード' %>
+    </div>
+    <%= f.submit "SERCH", class: "btn btn-border", style: "margin: 0;" %>
+  </div>
+<% end %>

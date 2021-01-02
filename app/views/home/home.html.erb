@@ -12,40 +12,6 @@
     <% end %>
   </div>
 </div>
-
- <div class="container">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="card undertale">
-          <h5 class="card-header">user-index</h5>
-          <div class="card-body">
-            <div class="card-text">
-              <%= @users.each do |user| %>
-                <p>
-                  <%= link_to user do %>
-                    <%= image_tag 'heart.png' %>
-                    <%= user.name %>
-                  <% end %>
-                </p>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card undertale">
-          <h5 class="card-header">project-index</h5>
-          <div class="card-body">
-            <p class="card-text">
-              <%= @projects.each do |project| %>
-                <p>
-                  <%= link_to project.title, project %>
-                </p>
-              <% end %>
-            </p>
-
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="undertale">
+  <%= render "layouts/nav_home" %>
 </div>

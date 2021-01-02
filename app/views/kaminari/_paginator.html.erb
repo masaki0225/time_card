@@ -1,0 +1,23 @@
+<%= paginator.render do -%>
+  <div class="pagenate-all">
+    <% unless current_page.first? %>
+    <div class="page-side">
+      <%= prev_page_tag %>
+    </div>
+    <% end %>
+    <ul class="pagination">
+      <% each_page do |page| -%>
+        <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
+          <%= page_tag page %>
+        <% elsif !page.was_truncated? -%>
+          <%= gap_tag %>
+        <% end -%>
+      <% end -%>
+    </ul>
+    <% unless current_page.last? %>
+      <div class="page-side">
+        <%= next_page_tag %>
+      </div>
+    <% end %>
+  </div>
+<% end -%>

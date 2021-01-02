@@ -1,16 +1,30 @@
 <div class="undertale">
   <div class="project-title">
     <%= @project.title %>
+    <% if @project.finish == true %>
+      <small>finish</small>
+    <% else %>
+      <small><%= @project.start_on %>~<%= @project.end_on %></small>
+    <% end %>
   </div>
   <div class="command">
     <%= link_to @project.user.name, user_path(@project.user.id) %>
+    <%= link_to "Github", @project.g_url %>
     <% if logged_in? %>
+      <% if current_user.already_paticipationed?(@project) %>
+        <%= link_to "不参加", nonparticipation_path(project_id: @project.id, id: current_user.id), method: :delete %>
+      <% else %>
+        <%= link_to "参加", project_participations_path(@project), method: :post %>
+      <% end %>
       <% if current_user.id == @project.user.id %>
-        <%= link_to "edit", "#" %>
+        <%= link_to "edit", edit_project_path(@project) %>
         <%= link_to "destroy", project_path, method: :delete %>
       <% end %>
     <% end %>
   </div>
+  <% if @participation_users.any? %>
+    <%= render "layouts/dropdown_users" %>
+  <% end %>
   <% if @project.image.attached? %>
     <div class="project-image">
       <%= image_tag @project.image %>

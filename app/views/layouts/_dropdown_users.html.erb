@@ -1,0 +1,11 @@
+<div class="dropdown_body dropright">
+  <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    参加者
+  </a>
+  <div class="dropdown-menu">
+    <%= @participation_users.each do |f| %>
+      <%= image_tag "heart.png" %>
+      <%= link_to f.name, user_path(f) %>
+    <% end %>
+  </div>
+</div>

@@ -9,6 +9,10 @@ gem 'rails', '~> 6.0.3'
 gem 'bootstrap', '~> 5.0.0.alpha3'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+#paginate
+gem 'kaminari'
+#検索機能
+gem 'ransack'
 #has_secure_password
 gem 'bcrypt',         '3.1.13'
 # Use sqlite3 as the database for Active Record

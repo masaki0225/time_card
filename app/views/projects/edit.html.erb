@@ -9,8 +9,8 @@
     <div class="selif-left">
       <%= render "shared/error_message", object: f.object %>
       <% if !@project.errors.any? %>
-       <p>新しいプロジェクトを作成するんだね？</p>
-       <p>最高の構想を期待してるよ</p>
+       <p>Projectを編集するんだね？</p>
+       <p>いいねをかせいでもらうよ！</p>
       <% end %>
     </div>
   </div>
@@ -30,6 +30,11 @@
     <div class="form-group">
       <%= f.label :content %>
       <%= f.text_area :content, class: 'form-control', placeholder: "Compose new micropost..." %>
+    </div>
+
+    <div class="form-group">
+      <%= f.check_box :finish, {class: "check_box"}, true, false %>
+      <%= f.label :完成 %>
     </div>
 
     <div class="form-group">

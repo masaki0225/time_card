@@ -1,0 +1,54 @@
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link" id="nav-project-tab" data-toggle="tab" href="#nav-project" role="tab" aria-controls="nav-home" aria-selected="false">Created</a>
+    <a class="nav-item nav-link" id="nav-participation-tab" data-toggle="tab" href="#nav-participation" role="tab" aria-controls="nav-participation" aria-selected="false">Participationed</a>
+    <a class="nav-item nav-link active" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="true">Active</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade" id="nav-project" role="tabpanel" aria-labelledby="nav-project-tab">
+    <%= @projects.each do |project| %>
+      <p class="project-title">*<%= link_to project.title, project %></p>
+      <% if project.image.attached? %>
+        <div class="project-image">
+          <%= image_tag project.image %>
+        </div>
+      <% end %>
+      <%= simple_format(project.content, class: "project-content") %>
+    <% end %>
+    <%= paginate @projects %>
+  </div>
+  <div class="tab-pane fade" id="nav-participation" role="tabpanel" aria-labelledby="nav-participation-tab">
+    <% if @participation_projects.any? %>
+      <%= @participation_projects.each do |f| %>
+        <div class="project-title">
+          *<%= link_to f.title, project_path(f) %>
+        </div>
+        <% if f.image.attached? %>
+          <div class="project-image">
+            <%= image_tag f.image %>
+          </div>
+        <% end %>
+        <%= simple_format(f.content, class: "project-content") %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <% if @participation_projects.any? %>
+      <%= @participation_projects.each do |f| %>
+        <% if f.finish  == false %>
+          <div class="project-title">
+            *<%= link_to f.title, project_path(f) %>
+            <small style="color: yellow;"><%= f.start_on %>~<%= f.end_on %></small>
+          </div>
+          <% if f.image.attached? %>
+            <div class="project-image">
+              <%= image_tag f.image %>
+            </div>
+          <% end %>
+          <%= simple_format(f.content, class: "project-content") %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

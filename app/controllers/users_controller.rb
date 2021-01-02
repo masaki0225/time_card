@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit,:update]
   before_action :correct_user, only: [:edit, :update]
-  
+
   def new
     @user = User.new
   end
 
   def index
-    @user = User.all
+    @users = User.all
   end
 
   def edit
@@ -34,7 +34,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @projects = @user.projects.all
+    @q = @user.projects.ransack(params[:q])#検索オブジェクト
+    @projects = @q.result.page(params[:page]).per(5)#検索結果or前件表示
+    @serch = @user.participation_projects.ransack(params[:q])
+    @participation_projects = @serch.result.page(params[:page]).per(5)
   end
 
   def update
@@ -44,19 +47,19 @@ class UsersController < ApplicationController
       redirect_to user_path
     else
       render 'edit'
-    end 
+    end
   end
-  
+
   private
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end  
-    
-    
-    
+    end
+
+
+
     #他のユーザーが編集できないようにする
     def correct_user
       @user = User.find_by(id: params[:id])
       redirect_to(root_url) unless @user == current_user
-    end 
+    end
 end
