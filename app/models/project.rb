@@ -10,7 +10,7 @@ class Project < ApplicationRecord
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 150 }
   validates :content, presence: true
-  validates :strat_on, presence: true
+  validates :start_on, presence: true
   validates :end_on, presence: true
 
 end

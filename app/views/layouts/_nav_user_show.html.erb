@@ -38,7 +38,7 @@
       <%= @participation_projects.each do |f| %>
         <% if f.finish  == false %>
           <div class="project-title">
-            *<%= link_to f.title, project_path(f) %>
+            *<%= link_to f.title, project_path(f), style: "color: red;" %>
             <small style="color: yellow;"><%= f.start_on %>~<%= f.end_on %></small>
           </div>
           <% if f.image.attached? %>
