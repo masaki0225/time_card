@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_01_02_035310) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "g_url"
+    t.string "string"
     t.boolean "finish", default: false, null: false
     t.date "start_on"
     t.date "end_on"
