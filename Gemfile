@@ -16,7 +16,8 @@ gem 'ransack'
 #has_secure_password
 gem 'bcrypt',         '3.1.13'
 # Use sqlite3 as the database for Active Record
-
+gem 'sqlite3', group: :development
+gem 'pg', group: :product
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -41,7 +42,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'sqlite3', '~> 1.4'
+
 end
 
 group :development do
@@ -61,7 +62,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '1.1.4'
+  gem 'mysql2'
   gem 'rails_12factor'
 end
 
