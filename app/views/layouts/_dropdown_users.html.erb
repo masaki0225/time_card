@@ -3,7 +3,7 @@
     参加者
   </a>
   <div class="dropdown-menu">
-    <%= @participation_users.each do |f| %>
+    <% @participation_users.each do |f| %>
       <%= image_tag "heart.png" %>
       <%= link_to f.name, user_path(f) %>
     <% end %>

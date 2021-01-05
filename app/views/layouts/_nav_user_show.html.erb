@@ -7,7 +7,7 @@
 </nav>
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade" id="nav-project" role="tabpanel" aria-labelledby="nav-project-tab">
-    <%= @projects.each do |project| %>
+    <% @projects.each do |project| %>
       <p class="project-title">*<%= link_to project.title, project %></p>
       <% if project.image.attached? %>
         <div class="project-image">
@@ -20,7 +20,7 @@
   </div>
   <div class="tab-pane fade" id="nav-participation" role="tabpanel" aria-labelledby="nav-participation-tab">
     <% if @participation_projects.any? %>
-      <%= @participation_projects.each do |f| %>
+      <% @participation_projects.each do |f| %>
         <div class="project-title">
           *<%= link_to f.title, project_path(f) %>
         </div>
@@ -35,7 +35,7 @@
   </div>
   <div class="tab-pane fade show active" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
     <% if @participation_projects.any? %>
-      <%= @participation_projects.each do |f| %>
+      <% @participation_projects.each do |f| %>
         <% if f.finish  == false %>
           <div class="project-title">
             *<%= link_to f.title, project_path(f), style: "color: red;" %>

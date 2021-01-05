@@ -32,7 +32,7 @@
   <% end %>
   <%= simple_format(@project.content, class: "project-content") %>
   <% if @comments %>
-    <%= @comments.each do |comment| %>
+    <% @comments.each do |comment| %>
       <div class="comment-content">
         <small>
           <%= comment.created_at.strftime('%m/%d') %>
