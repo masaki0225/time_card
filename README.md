@@ -1,4 +1,6 @@
 # ProjectToDoアプリ
+<img width="1407" alt="スクリーンショット 2021-01-06 23 17 41" src="https://user-images.githubusercontent.com/70649051/103778342-75a3d900-5075-11eb-8afb-3aeec1e96e58.png">
+
 [ProjectToDo](https://afternoon-everglades-23821.herokuapp.com/)はプロジェクト投稿及び管理アプリです。
 実際に企業で使っていだただけることを想定して制作しました。
 実務経験がないので想像によるものですが、自分がチームで制作する際に必要だと感じた機能搭載させています。
