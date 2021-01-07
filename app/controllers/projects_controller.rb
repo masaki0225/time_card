@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
-    before_action :logged_in_user, only: [:new, :create, :destroy]
-    before_action :correct_user, only: [:destroy]
+    before_action :logged_in_user, only: [:new, :create, :edit, :destroy]
+    before_action :correct_user, only: [:edit, :destroy, :update]
 
     def new
         @project = current_user.projects.build
@@ -73,6 +73,7 @@ class ProjectsController < ApplicationController
         params.require(:project).permit(:title, :content, :g_url, :start_on, :end_on, :image, :finish)
       end
 
+      #他のユーザーが編集、削除できないようにする
       def correct_user
           @project = current_user.projects.find_by(id: params[:id])
           redirect_to root_url if @project.nil?

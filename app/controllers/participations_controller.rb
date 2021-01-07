@@ -1,4 +1,5 @@
 class ParticipationsController < ApplicationController
+  before_action :logged_in_user, only: [:create, :destroy]
 
   def create
     @project = Project.find_by(id: params[:project_id])
@@ -21,5 +22,8 @@ class ParticipationsController < ApplicationController
     flash[:success] = "不参加"
     redirect_to user_path(current_user)
   end
+
+  private
+
 
 end

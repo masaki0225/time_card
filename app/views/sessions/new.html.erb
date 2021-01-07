@@ -1,29 +1,43 @@
-<div class="selif-left">
-  <p>これはLogin画面だよ</p>
-</div>
 <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-  
+
+  <div class="title">
+    <% if !flash.any? %>
+      <%= image_tag 'bugerpant1', class: 'bugerpant' %>
+    <% else %>
+      <%= image_tag 'bugerpant2', class: 'bugerpant' %>
+    <% end %>
+    <div class="selif-left">
+      <% if !flash.any? %>
+       <p>ログインするのかい？</p>
+       <p>パスワードを間違えないようにな。</p>
+      <% else %>
+        <p>間違えるなっていったろ！</p>
+        <P>emailかpasswordをミスってるぜ。</P>
+      <% end %>
+    </div>
+  </div>
+
   <div class="undertale">
-      
+
       <div class="form-group">
           <%= f.label :email %>
           <%= f.email_field :email, class: 'form-control' %>
       </div>
-      
+
       <div class="form-group">
           <%= f.label :password %>
           <%= f.password_field :password, class: 'form-control' %>
       </div>
-      
+
       <div class="form-group">
           <%= f.label :password_confirmation %>
           <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
-      
-      <%= f.submit "Determination!", class: "btn btn-primary" %>
-      
+
+      <%= f.submit "Login!", class: "btn btn-border" %>
+
       <p>&nbsp;&nbsp;&nbsp;︎︎or</p>
-      
-      <%= link_to "New User?", signup_path, class: "btn btn-light" %>
+
+      <%= link_to "New User?", signup_path, class: "btn btn-border" %>
   </div>
 <% end %>

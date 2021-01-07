@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :logged_in_user, only: [:create, :destory]
 
   def show
     @comment = Comment.find_by(id: params[:id])
