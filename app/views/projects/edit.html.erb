@@ -1,5 +1,12 @@
 <%= form_with(model: @project, local: true) do |f| %>
 
+  <div class="mobile-title">
+    <div class="mobile-t">
+      <h1>Project Edit</h1>
+      <p>...完成したらチェックをつけなよ</p>
+    </div>
+  </div>
+
   <div class="title">
     <% if !@project.errors.any? %>
       <%= image_tag 'メタトン.jpg', class: 'bugerpant' %>
@@ -32,6 +39,10 @@
       <%= f.text_area :content, class: 'form-control', placeholder: "Compose new micropost..." %>
     </div>
 
+    <span class="image">
+      <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+    </span>
+
     <div class="form-group">
       <%= f.check_box :finish, {class: "check_box"}, "true", "false" %>
       <%= f.label :完成 %>
@@ -48,10 +59,6 @@
     </div>
 
     <%= f.submit "SAVE", class: "btn btn-border" %>
-
-    <span class="image">
-    <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
-    </span>
 
   </div>
 

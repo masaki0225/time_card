@@ -1,3 +1,13 @@
+<div class="mobile-title">
+  <h1 class="mobile-t">
+    <%= image_tag "heart.png", class: "heart" %>
+    <%= link_to @user.name, user_path %>
+  </h1>
+  <div class="mobile-serch">
+    <%= render "layouts/serch" %>
+  </div>
+</div>
+
 <div class="title">
   <%= image_tag "heart.png", class: 'heart' %>
   <div class="selif-left">

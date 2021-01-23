@@ -1,3 +1,15 @@
+<div class="mobile-title">
+  <h1 class="mobile-t"><%= link_to "Project To Do", root_path %></h1>
+  <p class="mobile-command">
+    <% if logged_in? %>
+      <%= link_to "New Project", projects_new_path %>
+      <%= link_to @current_user.name, user_path(current_user) %>
+    <% else %>
+      <%= link_to "Sign Up", signup_path %>
+      <%= link_to "Login", login_path %>
+    <% end %>
+  </p>
+</div>  
 <div class="title">
   <%= image_tag 'flowy.jpg', class: 'flowy' %>
   <div class="selif-left">

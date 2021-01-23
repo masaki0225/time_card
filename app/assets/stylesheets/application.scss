@@ -539,3 +539,138 @@ li {
     }
   }
 }
+
+.mobile-title {
+  display: none;
+}
+
+.image {
+  display: inline-block;
+  margin: 15px;
+}
+
+/* デバイス */
+@media (max-width: 600px) {
+  .title {
+    display: none;
+  }
+
+  .mobile-title {
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    .mobile-t {
+      text-align: center;
+      margin-bottom: 70px;
+      font-family: "8bit";
+      text-decoration: none;
+      color: white;
+    
+      a{
+      font-family: "8bit";
+      font-size: 50px;
+      text-decoration: none;
+      color: white;
+    }
+      p {
+        color: #777777;
+      }
+   }
+    .mobile-command {
+      margin-bottom: 30px;
+    a {
+      font-family: "8bit";
+      border: 2px solid orange;
+      text-decoration: none;
+      color: orange;
+      margin-left: 45px;
+      padding: 10px;
+      font-size: 20px;
+
+      &:hover{
+        color: #FFD700;
+      border: 2px solid #FFD700;
+      }
+    }
+   }
+     .mobile-serch {
+       text-align: center;
+     }
+  }
+
+  .undertale {
+    background-color: black;
+    color: white;
+    margin: 30px 20px;
+    border: 0.6rem solid white;
+
+    .nav-item {
+      font-size: 12px;
+    }
+
+    .card-text {
+      li {
+        margin: 5px;
+        a {
+          font-family: "8bit";
+          font-size: 40px;
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+    .project-title {
+      font-size: 40px;
+
+      small {
+        display: block;
+      }
+    }
+    small {
+      font-size: 15px;
+    }
+    .dropdown-menu {
+      margin-left: 160px;
+      height: auto;
+
+      ul{
+        padding-left: 0;
+        margin-bottom: 0%;
+      }
+    }
+    .command {
+      a{
+        font-size: 25px;
+      }
+    }
+  }
+  
+  .about-text {
+    text-align: center;
+      margin-bottom: 70px;
+      font-family: "8bit";
+      text-decoration: none;
+      color: white;
+    
+      a{
+      font-family: "8bit";
+      font-size: 50px;
+      text-decoration: none;
+      color: white;
+    }
+      p {
+        color: #777777;
+      }
+  }
+
+  .about-main{
+    .about-img {
+      img {
+        width:auto;
+        height:auto;
+        max-width:100%;
+        max-height:100%;
+      }
+    }
+  }
+}

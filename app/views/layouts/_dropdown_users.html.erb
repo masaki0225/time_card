@@ -4,8 +4,12 @@
   </a>
   <div class="dropdown-menu">
     <% @participation_users.each do |f| %>
-      <%= image_tag "heart.png" %>
-      <%= link_to f.name, user_path(f) %>
+      <ul>
+        <li>
+          <%= image_tag "heart.png" %>
+          <%= link_to f.name, user_path(f) %>
+        </li>
+      </ul>  
     <% end %>
   </div>
 </div>

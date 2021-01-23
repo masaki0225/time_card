@@ -1,5 +1,12 @@
 <%= form_with(model: @project, local: true) do |f| %>
 
+  <div class="mobile-title">
+    <div class="mobile-t">
+      <h1>New Project</h1>
+      <p>...最高のアイデアを期待しているよ</p>
+    </div>
+  </div>
+
   <div class="title">
     <% if !@project.errors.any? %>
       <%= image_tag 'メタトン.jpg', class: 'bugerpant' %>
